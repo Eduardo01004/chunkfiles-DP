@@ -1,13 +1,13 @@
 # chunkfiles-DP
 
-# 📦 Instalar dependencias
+# Instalar dependencias
 npm install
 
-# ▶️ Iniciar el servidor
+# Iniciar el servidor
 node server.js
 
-# 📤 Subir un PDF
+# Subir un PDF
 node chunkFile.js "C:\ruta\a\archivo.pdf"
 
-# 📤 Subir un Word DOCX
+#  Subir un Word DOCX
 node chunkFile.js "C:\ruta\a\documento.docx"
