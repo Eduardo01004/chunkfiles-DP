@@ -20,7 +20,7 @@ app.post("/upload", async (req, res) => {
   const uuid = uuidv4();
   const blobName = `${uuid}.pdf`;
   
-  const signedUrlResp = await fetch("http://localhost:8081/Api/V1/Files/Signed-Url", {
+  const signedUrlResp = await fetch("http://localhost:8081/Api/V1/Files/URLs", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ fileName: blobName, contentType: "application/pdf" })
@@ -46,7 +46,7 @@ app.post("/upload", async (req, res) => {
     };
 
     const manifestName = `${fileId}-manifest.json`;
-    const manifestSignedUrlResp = await fetch("http://localhost:8081/Api/V1/Files/Signed-Url", {
+    const manifestSignedUrlResp = await fetch("http://localhost:8081/Api/V1/Files/URLs", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ fileName: manifestName, contentType: "application/json" })
@@ -58,6 +58,7 @@ app.post("/upload", async (req, res) => {
       headers: manifestSignedUrl.headers,
       body: Buffer.from(JSON.stringify(manifest, null, 2))
     });
+    
 
     state.delete(fileId);
     return res.json({

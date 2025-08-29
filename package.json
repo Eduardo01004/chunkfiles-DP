@@ -12,6 +12,7 @@
   "description": "",
   "dependencies": {
     "express": "^5.1.0",
+    "libreoffice-convert": "^1.6.1",
     "mammoth": "^1.10.0",
     "node-fetch": "^2.7.0",
     "pdf-lib": "^1.17.1",
